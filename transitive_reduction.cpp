@@ -15,11 +15,16 @@ public:
 
     Graph(int v) : V(v), adj(v) {}
 
-    void addEdge(int u, int v) {
-        auto& lst = adj[u];
-        if (find(lst.begin(), lst.end(), v) == lst.end())
-            lst.push_back(v);
-    }
+    void addEdge(int u, int v)
+        {
+            if (u < 0 || u >= V || v < 0 || v >= V)
+                throw out_of_range("Vertice fora do intervalo [0, V)");
+            if (u == v)
+                return;
+            auto &lst = adj[u];
+            if (find(lst.begin(), lst.end(), v) == lst.end())
+                lst.push_back(v);
+        }
 
     void removeEdge(int u, int v) {
         adj[u].remove(v);
