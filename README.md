@@ -1,5 +1,12 @@
 # Redução Transitiva de Grafos
 
+## 0. Compilar e Rodar
+
+```bash
+g++ -o transitive_reduction transitive_reduction.cpp
+./transitive_reduction input.txt > output.txt
+```
+
 ## 1. O Problema
 
 Dado um grafo direcionado G = (V, E), a **redução transitiva** produz um
@@ -68,30 +75,6 @@ Para cada uma das |E| arestas, fazemos uma busca O(V + E). No total:
 ```
 O(E × (V + E))
 ```
-
----
-
-## 4. Decisão: Grafos com Ciclos
-
-O algoritmo, como implementado, assume que o grafo de entrada é um
-**DAG** (grafo acíclico direcionado) ou então não se preocupa em tratar
-cuidadosamente os ciclos. Em um ciclo (ex: 0->1->2->0), toda aresta parece
-redundante porque dá pra "dar a volta", o que tecnicamente quebraria a
-ideia de redução transitiva única dentro de uma componente fortemente
-conexa. 
-
----
-
-## 5. Decisão: Grafos Não Direcionados
-
-O enunciado pede para discutir se a implementação funcionaria em um grafo
-não direcionado. Funcionaria, mas o resultado é pouco
-interessante já que em um grafo não direcionado conexo, toda aresta que faz
-parte de um ciclo é "redundante" pela mesma lógica, então a redução
-transitiva de um grafo não-direcionado conexo é simplesmente uma
-**árvore geradora** (spanning tree). Para grafos desconexos, vira uma
-**floresta geradora**. Isso já é resolvido de forma mais direta por
-algoritmos clássicos como Prim ou Kruskal.
 
 ---
 
@@ -294,25 +277,5 @@ Exemplo:
 0 3
 ```
 
-## 8. Compilar e Rodar
 
-```bash
-g++ -o transitive_reduction transitive_reduction.cpp
-./transitive_reduction input.txt < output.txt
-```
 
----
-
-## 9. Pontos para Discutir no Relatório
-
-- Justificativa da lista de adjacência (esparsidade, custo de
-  percorrer vizinhos).
-- Explicação do algoritmo de redução via DFS ignorando a aresta direta.
-- Complexidade O(E·(V+E)).
-- Discussão sobre grafos não direcionados (resultado = árvore/floresta
-  geradora).
-- Limitação conhecida: ciclos em grafos direcionados não são tratados
-  de forma especial (cada aresta de um ciclo pode parecer redundante).
-- Sugestão de trabalho futuro: detectar componentes fortemente conexas
-  (Tarjan/Kosaraju) antes de aplicar a redução, para tratar ciclos
-  corretamente.
