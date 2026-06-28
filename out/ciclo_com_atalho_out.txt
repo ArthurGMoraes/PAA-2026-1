@@ -7,7 +7,7 @@ Arestas: 6
 
 Apos reducao de transitividade
 0 -> 1
-1 -> 
+1 -> 2
 2 -> 3
 3 -> 0
-Arestas: 3
+Arestas: 4

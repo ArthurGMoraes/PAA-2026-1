@@ -64,21 +64,12 @@ public:
     }
 
     void transitiveReduction() {
-        vector<pair<int,int>> toRemove;
-
         for (int u = 0; u < V; u++) {
-            //copia dos vizinhos
             vector<int> neighbors(adj[u].begin(), adj[u].end());
-
             for (int v : neighbors) {
-                if (isReachable(u, v)) {
-                    toRemove.push_back({u, v});
-                }
+                if (isReachable(u, v))
+                    removeEdge(u, v);
             }
-        }
-
-        for (auto& [u, v] : toRemove) {
-            removeEdge(u, v);
         }
     }
 
