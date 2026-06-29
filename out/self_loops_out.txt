@@ -1,0 +1,11 @@
+Grafo original:
+0 -> 
+1 -> 
+2 -> 
+Arestas: 0
+
+Apos reducao de transitividade
+0 -> 
+1 -> 
+2 -> 
+Arestas: 0

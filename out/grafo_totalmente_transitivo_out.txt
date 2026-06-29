@@ -1,0 +1,13 @@
+Grafo original:
+0 -> 1, 2, 3
+1 -> 2, 3
+2 -> 3
+3 -> 
+Arestas: 6
+
+Apos reducao de transitividade
+0 -> 1
+1 -> 2
+2 -> 3
+3 -> 
+Arestas: 3

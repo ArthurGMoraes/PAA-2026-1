@@ -1,0 +1,5 @@
+Grafo original:
+Arestas: 0
+
+Apos reducao de transitividade
+Arestas: 0
